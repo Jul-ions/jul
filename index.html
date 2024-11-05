@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Iklan Kampus</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1c1c; /* Dark background */
+            color: #00ffcc; /* Neon teal color */
+        }
+        header {
+            background: linear-gradient(90deg, #ff007f, #00ffcc); /* Pink to teal gradient */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(255, 0, 127, 0.5);
+        }
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: #ff007f; /* Hover color */
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333; /* Dark footer */
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .page {
+            display: none;
+        }
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* Center vertically */
+        }
+        .login-form {
+            background: #2a2a2a; /* Darker form background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 255, 204, 0.5); /* Neon shadow */
+            max-width: 400px;
+            width: 100%;
+        }
+        form label {
+            margin-top: 10px;
+            color: #00ffcc; /* Neon teal color */
+        }
+        form input {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #00ffcc; /* Neon teal border */
+            border-radius: 4px;
+            background-color: #1c1c1c; /* Dark input background */
+            color: #00ffcc; /* Neon teal text */
+        }
+        form button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #ff007f; /* Pink button */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+        form button:hover {
+            background-color: #00ffcc; /* Neon teal on hover */
+        }
+        .form-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ff007f; /* Title color */
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .register-link a {
+            color: #00ffcc; /* Neon teal color */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Web Iklan Kampus</h1>
+    <nav>
+        <a href="#" onclick="showPage('home')">Beranda</a>
+        <a href="#" onclick="showPage('login')">Login</a>
+        <a href="#" onclick="showPage('register')">Register</a>
+        <a href="#" onclick="showPage('dashboard')">Dashboard</a>
+    </nav>
+</header>
+
+<main id="content">
+    <div id="home" class="page">
+        <h2>Selamat Datang di Web Iklan Kampus!</h2>
+        <p>Temukan berbagai informasi dan penawaran menarik dari kampus kami.</p>
+        <h3>Fitur Utama:</h3>
+        <ul>
+            <li><strong>Informasi Beasiswa:</strong> Dapatkan informasi terkini mengenai beasiswa yang tersedia di kampus.</li>
+            <li><strong>Event Kampus:</strong> Ikuti berbagai acara dan kegiatan yang diselenggarakan oleh kampus.</li>
+            <li><strong>Lowongan Pekerjaan:</strong> Temukan lowongan pekerjaan dan magang yang relevan untuk mahasiswa.</li>
+            <li><strong>Forum Diskusi:</strong> Bergabunglah dalam forum diskusi untuk berbagi informasi dan pengalaman dengan mahasiswa lainnya.</li>
+        </ul>
+        <h3>Berita Terkini:</h3>
+        <ul>
+            <li><strong>Beasiswa:</strong> Pendaftaran beasiswa semester depan dibuka hingga 30 April.</li>
+            <li><strong>Event:</strong> Seminar tentang karir akan diadakan pada 15 Mei di Aula Utama.</li>
+            <li><strong>Lowongan:</strong> Perusahaan XYZ sedang mencari intern untuk posisi marketing.</li>
+        </ul>
+    </div>
+
+    <div id="login" class="page login-container">
+        <div class="login-form">
+            <h2 class="form-title">Login ke Akun Anda</h2>
+            <form onsubmit="event.preventDefault(); showPage('dashboard');">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p class="register-link">Belum punya akun? <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
+        </div>
+    </div>
+
+    <div id="register" class="page">
+        <h2>Daftar Akun Baru</h2>
+        <form onsubmit="event.preventDefault(); showPage('dashboard');">
+            <label for="reg-username">Username:</label>
+            <input type="text" id="reg-username" name="username" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="reg-password">Password:</label>
+            <input type="password" id="reg-password" name="password" required>
+            <button type="submit">Daftar</button>
+        </form>
+        <p>Sudah punya akun? <a href="#" onclick="showPage('login')">Login di sini</a></p>
+    </div>
+
+    <div id="dashboard" class="page">
+        <h2>Selamat Datang di Dashboard Anda!</h2>
+        <p>Temukan berbagai informasi dan penawaran eksklusif dari kampus kami di sini.</p>
+        <h3>Informasi Terkini:</h3>
+        <ul>
+            <li><strong>Beasiswa:</strong> Pendaftaran beasiswa semester depan dibuka hingga 30 April.</li>
+            <li><strong>Event:</strong> Seminar tentang karir akan diadakan pada 15 Mei di Aula Utama.</li>
+            <li><strong>Lowongan:</strong> Perusahaan XYZ sedang mencari intern untuk posisi marketing.</li>
+        </ul>
+        <h3>Kontak:</h3>
+        <p class="contact-info">Jika Anda memiliki pertanyaan, silakan hubungi kami di <a href="mailto:info@kampus.com" style="color: #00ffcc;">info@kampus.com</a>.</p>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2023 Web Iklan Kampus</p>
+</footer>
+
+<script>
+    function showPage(page) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(p => {
+            p.style.display = 'none';
+        });
+        document.getElementById(page).style.display = 'block';
+    }
+
+    // Tampilkan beranda secara default
+    showPage('home');
+</script>
+
+</body>
+</html>
